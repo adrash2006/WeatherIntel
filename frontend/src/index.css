@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --bg-root: #051424;
+  --bg-subsurface: #070d1e;
+  --bg-card: #0b152d;
+  --bg-card-elevated: #112147;
+  --border-tactical: #1e3a70;
+  --border-focus: #22d3ee;
+  
+  --cyan-primary: #06b6d4;
+  --cyan-bright: #4cd7f6;
+  --emerald-verified: #10b981;
+  --amber-warning: #f59e0b;
+  --red-severe: #ef4444;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-cyan: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-root);
+  color: #d4e4fa;
+  font-family: 'Hanken Grotesk', -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Monospace Telemetry Numbers */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'tnum' 1;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070d1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a70;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Tactical glowing card */
+.tactical-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-tactical);
+  transition: all 0.2s ease;
+}
+
+.tactical-card:hover {
+  border-color: #254b91;
+}
+
+.tactical-card-active {
+  background: var(--bg-card-elevated);
+  border: 1px solid var(--cyan-primary);
+  box-shadow: inset 0 0 12px rgba(6, 182, 212, 0.12), 0 0 16px rgba(6, 182, 212, 0.15);
+}
+
+/* Glowing Status Badges */
+.badge-verified {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid #10b981;
+}
+
+.badge-corroborated {
+  background: rgba(6, 182, 212, 0.15);
+  color: #38bdf8;
+  border: 1px solid #06b6d4;
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+.badge-critical {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+/* Pulsing Beacon Animation */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.radar-ping {
+  animation: radar-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Leaflet Map overrides for dark Tactical styling */
+.leaflet-container {
+  background: #051424 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.leaflet-tile {
+  filter: brightness(0.65) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #0b152d !important;
+  color: #ffffff !important;
+  border: 1px solid #1e3a70 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.leaflet-popup-tip {
+  background: #0b152d !important;
+  border: 1px solid #1e3a70 !important;
+}
