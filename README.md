@@ -140,7 +140,7 @@ Cloud_GPT/
 │   └── dist/                  # Production build output
 ├── vercel.json                # Vercel serverless routing & asset rewrites
 ├── requirements.txt           # Root dependency manifest for Vercel Python runtime
-├── tech_stack_used.png        # Official high-resolution tech stack banner
+├── image.png        # Official high-resolution tech stack banner
 └── README.md                  # Project documentation & SIH26069 guide
 ```
 
