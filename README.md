@@ -1,7 +1,9 @@
 <div align="center">
 
 # 🌦️ WeatherIntel
+
 ### National Weather Event Intelligence & Verification Platform
+
 **Smart India Hackathon (SIH26069) Prototype**
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://python.org)
@@ -15,7 +17,7 @@
 
 <br/>
 
-<img src="./tech_stack_used.png" alt="Tech Stack Used" width="900"/>
+<img src="./image.png" alt="Tech Stack Used" width="900"/>
 
 <br/>
 <br/>
@@ -65,11 +67,13 @@ Stage 5: EXPLAINABLE CONFIDENCE SCORING & AUDIT TRAIL
 ## 🌟 Key Features
 
 ### 1. 🇮🇳 ISRO Bhuvan Geospatial Situation Radar
+
 - Integrates official **ISRO Bhuvan / National Remote Sensing Centre (NRSC)** OpenGIS Web Map Service (WMS) layers.
 - Real-time interactive radar displaying active weather event clusters, pulsing severity rings, and 12km DBSCAN radius envelopes.
 - High-res satellite and street terrain base layers with zero-flicker state diffing.
 
 ### 2. 📊 Transparent Forensic Evidence Dossier
+
 - Every confidence score is backed by an **auditable mathematical formula**:
   - `+25 pts`: Official IMD Automated Weather Station validates precipitation threshold.
   - `+15 pts`: Multiple independent citizen observations within 5km radius.
@@ -78,20 +82,24 @@ Stage 5: EXPLAINABLE CONFIDENCE SCORING & AUDIT TRAIL
 - Full audit history detailing each contributing citizen report and station distance.
 
 ### 3. 🖼️ Perceptual 64-Bit dHash Image Deduplication
+
 - Computes perceptual difference hash gradients on uploaded photographs.
 - Merges viral recycled photos (`Hamming Distance ≤ 10`) under existing clusters without falsely inflating emergency severity counts while preserving each citizen's unique text observation.
 
 ### 4. 🛡️ Human-in-the-Loop Admin Triage
+
 - Dedicated emergency officer triage portal to review contradictory or flagged events.
 - Commit official verification transitions (`VERIFIED`, `HIGH CONFIDENCE`, `UNDER HUMAN REVIEW`, `REJECTED`) into the immutable audit registry.
 
 ### 5. ⚡ One-Click Simulation Bench
+
 - Pre-configured emergency scenario injectors for testing and evaluations:
   - **Pune Monsoon Cloudburst**: Multilingual Marathi/English reports verified by Shivajinagar AWS (78.2 mm/h) $\rightarrow$ Confidence >90%.
   - **Mumbai Floods Viral Image Storm**: Demonstrates 64-bit dHash deduplication collapsing duplicate flood photos across Dadar & Hindmata.
   - **Delhi False Alarm Anomaly**: Exaggerated storm claim contradicted by Safdarjung AWS (0.0 mm/h) $\rightarrow$ Automatic penalty and triage flag.
 
 ### 6. 📱 DPDP Act 2023 Compliant Citizen Reporting
+
 - Citizen dialog with full multilingual support (**English, हिन्दी, मराठी**).
 - One-touch GPS geolocation lock and photographic ground truth upload.
 - Strict data minimization: optional anonymous submission with explicit telemetry consent under the Digital Personal Data Protection Act 2023.
@@ -100,13 +108,13 @@ Stage 5: EXPLAINABLE CONFIDENCE SCORING & AUDIT TRAIL
 
 ## 🛠️ Complete Tech Stack
 
-| Layer | Technologies |
-|---|---|
-| **Frontend UI** | HTML5, Vanilla JavaScript (ES2022), CSS3 Glassmorphism (Shadcn Mainline Aesthetic), Leaflet.js 1.9.4 |
-| **Backend API** | Python 3.10+, FastAPI, Uvicorn (ASGI), Pydantic v2 |
-| **Geospatial & Remote Sensing** | ISRO Bhuvan (NRSC WMS / OpenGIS), IMD AWS & ARG Telemetry Mesh |
-| **AI & Computer Vision** | Multilingual Rule-based Gazetteer NLP, Perceptual 64-bit dHash (Pillow), DBSCAN Spatio-temporal Clustering |
-| **Cloud & Database** | Google Firebase Firestore, Google Cloud Storage, Vercel Serverless Python |
+| Layer                           | Technologies                                                                                               |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Frontend UI**                 | HTML5, Vanilla JavaScript (ES2022), CSS3 Glassmorphism (Shadcn Mainline Aesthetic), Leaflet.js 1.9.4       |
+| **Backend API**                 | Python 3.10+, FastAPI, Uvicorn (ASGI), Pydantic v2                                                         |
+| **Geospatial & Remote Sensing** | ISRO Bhuvan (NRSC WMS / OpenGIS), IMD AWS & ARG Telemetry Mesh                                             |
+| **AI & Computer Vision**        | Multilingual Rule-based Gazetteer NLP, Perceptual 64-bit dHash (Pillow), DBSCAN Spatio-temporal Clustering |
+| **Cloud & Database**            | Google Firebase Firestore, Google Cloud Storage, Vercel Serverless Python                                  |
 
 ---
 
@@ -149,16 +157,19 @@ Cloud_GPT/
 ## 🚀 Getting Started Locally
 
 ### Prerequisites
+
 - **Python 3.10+**
 - **pip** and **PowerShell** / **Bash**
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-username/weatherintel.git
 cd weatherintel
 ```
 
 ### 2. Set Up Virtual Environment & Dependencies
+
 ```powershell
 # Windows PowerShell
 python -m venv backend\.venv
@@ -174,11 +185,13 @@ pip install -r requirements.txt
 ```
 
 ### 3. Launch the Local Server
+
 ```bash
 python -m uvicorn backend.main:app --reload --port 8000
 ```
 
 ### 4. Open in Your Browser
+
 Navigate to:
 👉 **[http://127.0.0.1:8000](http://127.0.0.1:8000)**
 
@@ -196,7 +209,7 @@ The platform is pre-configured with `vercel.json` and `api/index.py` for full-st
    ```
 2. In the **Vercel Dashboard**:
    - Click **Add New Project** $\rightarrow$ Import your GitHub repository.
-   - **Framework Preset**: Leave as *Other* or *Vite*.
+   - **Framework Preset**: Leave as _Other_ or _Vite_.
    - **Root Directory**: Leave as `./` (Root).
    - Click **Deploy**.
 3. Vercel automatically launches:
@@ -207,22 +220,23 @@ The platform is pre-configured with `vercel.json` and `api/index.py` for full-st
 
 ## 📡 REST API Reference
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/events` | List active weather event clusters with filters (`event_type`, `severity`, `city`) |
-| `GET` | `/api/events/{id}` | Inspect complete forensic dossier for an event |
-| `POST` | `/api/events/{id}/verify` | Commit human-in-the-loop verification signoff |
-| `POST` | `/api/reports` | Ingest citizen ground observation with multi-part photo upload |
-| `GET` | `/api/metrics` | Retrieve national telemetry metrics (confidence, latencies, clusters) |
-| `GET` | `/api/imd/stations` | Query active IMD Automated Weather Station readings |
-| `POST` | `/api/simulate-scenario/{name}` | Inject evaluation scenario (`pune_rain`, `mumbai_flood`, `delhi_anomaly`) |
-| `GET` | `/api/health` | Service health and telemetry mesh operational status |
+| Method | Endpoint                        | Description                                                                        |
+| ------ | ------------------------------- | ---------------------------------------------------------------------------------- |
+| `GET`  | `/api/events`                   | List active weather event clusters with filters (`event_type`, `severity`, `city`) |
+| `GET`  | `/api/events/{id}`              | Inspect complete forensic dossier for an event                                     |
+| `POST` | `/api/events/{id}/verify`       | Commit human-in-the-loop verification signoff                                      |
+| `POST` | `/api/reports`                  | Ingest citizen ground observation with multi-part photo upload                     |
+| `GET`  | `/api/metrics`                  | Retrieve national telemetry metrics (confidence, latencies, clusters)              |
+| `GET`  | `/api/imd/stations`             | Query active IMD Automated Weather Station readings                                |
+| `POST` | `/api/simulate-scenario/{name}` | Inject evaluation scenario (`pune_rain`, `mumbai_flood`, `delhi_anomaly`)          |
+| `GET`  | `/api/health`                   | Service health and telemetry mesh operational status                               |
 
 ---
 
 ## 🔒 Privacy & Governance (DPDP Act 2023)
 
 WeatherIntel adheres to strict data protection standards in accordance with India's **Digital Personal Data Protection Act 2023**:
+
 - **Data Minimization**: Only geospatial coordinates and weather observations are stored. Phone numbers and email addresses are never required.
 - **Anonymous Reporting**: Citizens may submit observations completely anonymously.
 - **Explicit Consent**: Citizen submission requires explicit consent for disaster relief telemetry usage.
